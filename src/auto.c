@@ -36,8 +36,16 @@ void driveUntilClose(int threshold, int power) {
     stopDrive();
 }
 
-void checkLine() {
-    
+void onLine() {
+    return analogRead(LINE_SENSOR) > LINE_THRESHOLD;
+}
+
+void driveUntilLine(int power) {
+    while (!onLine()) {
+        drive(power, power);
+        delay(20);
+    }
+    stopDrive();
 }
 
 void autonomous() {

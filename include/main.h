@@ -29,12 +29,17 @@ void operatorControl();
 extern Encoder leftEncoder;
 extern Encoder rightEncoder;
 
+// Autonomous constants
+#define LINE_THRESHOLD 2000
+
 // Autonomous helpers
 void drive(int leftPower, int rightPower);
 void stopDrive();
 void driveTicks(int ticks, int power);
 int readDistance();
 void driveUntilClose(int threshold, int power);
+int onLine();
+void driveUntilLine(int power);
 
 #ifdef __cplusplus
 }
