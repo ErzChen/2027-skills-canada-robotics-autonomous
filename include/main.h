@@ -30,16 +30,25 @@ extern Encoder leftEncoder;
 extern Encoder rightEncoder;
 
 // Autonomous constants
-#define LINE_THRESHOLD 2000
+#define LINE_THRESHOLD 0
+#define DISTANCE_THRESHOLD 0
+#define DRIVE_POWER 0
+#define TURN_TICKS 0
 
 // Autonomous helpers
 void drive(int leftPower, int rightPower);
 void stopDrive();
 void driveTicks(int ticks, int power);
+void turn(int power, int direction);
+void turnTicks(int ticks, int power, int direction)
 int readDistance();
 void driveUntilClose(int threshold, int power);
 int onLine();
 void driveUntilLine(int power);
+void sweepBulls();
+void driveSweep();
+void driveTurn(int direction);
+void ringSweep(int direction);
 
 #ifdef __cplusplus
 }
