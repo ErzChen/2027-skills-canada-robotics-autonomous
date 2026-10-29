@@ -20,7 +20,7 @@ void driveTicks(int ticks, int power) {
 }
 
 void turn(int power, int direction) {
-    drive(power * direction, -power * direction) // direction: 1 for right, -1 for left
+    drive(power * direction, -power * direction); // direction: 1 for right, -1 for left
 }
 
 void turnTicks(int ticks, int power, int direction) {
@@ -50,7 +50,7 @@ void driveUntilClose(int threshold, int power) {
     stopDrive();
 }
 
-void onLine() {
+bool onLine() {
     return analogRead(LINE_SENSOR) > LINE_THRESHOLD;
 }
 
@@ -72,7 +72,7 @@ void driveSweep() {
 }
 
 void driveTurn(int direction) {
-    driveUntilClose(DISTANCE_THRESHOLD);
+    driveUntilClose(DISTANCE_THRESHOLD, DRIVE_POWER);
     turnTicks(TURN_TICKS, DRIVE_POWER, direction);
 }
 
@@ -103,7 +103,7 @@ void autonomous() {
     direction *= -1;
 
     while (true) {
-        ringSweep(direction)
+        ringSweep(direction);
         direction *= -1;
     }
 }

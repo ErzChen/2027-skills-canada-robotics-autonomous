@@ -40,10 +40,10 @@ void drive(int leftPower, int rightPower);
 void stopDrive();
 void driveTicks(int ticks, int power);
 void turn(int power, int direction);
-void turnTicks(int ticks, int power, int direction)
+void turnTicks(int ticks, int power, int direction);
 int readDistance();
 void driveUntilClose(int threshold, int power);
-int onLine();
+bool onLine();
 void driveUntilLine(int power);
 void sweepBulls();
 void driveSweep();
